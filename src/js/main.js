@@ -26,7 +26,7 @@ var TodoApp = React.createClass({
     },
 
     handleClick: function() {
-        var newTask = document.getElementById('task').value;
+        var newTask = this.refs['newTask'].getDOMNode().value;
         if (newTask) {
             this.state.items.push(newTask);
             this.setState(this.state.items);
@@ -35,14 +35,14 @@ var TodoApp = React.createClass({
     },
 
     cleanUpTextField: function() {
-        document.getElementById('task').value = '';
+        this.refs['newTask'].getDOMNode().value = '';
     },
 
     render: function() {
         return (
             <div>
                 <TodoItems items={this.state.items} />
-                <input type="text" name='task' id='task' />
+                <input type="text" ref='newTask' />
                 <button onClick={this.handleClick}>Add Task</button>
             </div>
         );
