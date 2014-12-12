@@ -26,10 +26,11 @@ var TodoApp = React.createClass({
     },
 
     handleClick: function() {
-        var newTask = this.refs['newTask'].getDOMNode().value;
+        var newTask =
+            this.refs['newTask'].getDOMNode().value;
         if (newTask) {
-            this.state.items.push(newTask);
-            this.setState(this.state.items);
+            var updatedItems = this.state.items.concat([newTask]);
+            this.setState(updatedItems);
             this.cleanUpTextField();
         }
     },
