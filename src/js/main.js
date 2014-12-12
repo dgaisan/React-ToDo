@@ -5,6 +5,7 @@
 var React = require('react');
 
 var TodoItems = React.createClass({
+
     render: function() {
         return (
             <ul>
@@ -21,13 +22,10 @@ var TodoItems = React.createClass({
 var TodoApp = React.createClass({
 
     getInitialState: function() {
-        console.log('initialState');
-
         return {items: []};
     },
 
-    handleClick: function(e) {
-        console.log('handleClick');
+    handleClick: function() {
         var newTask = document.getElementById('task').value;
         if (newTask) {
             this.state.items.push(newTask);
@@ -41,8 +39,6 @@ var TodoApp = React.createClass({
     },
 
     render: function() {
-        console.log('rendering');
-
         return (
             <div>
                 <TodoItems items={this.state.items} />
@@ -54,6 +50,6 @@ var TodoApp = React.createClass({
 });
 
 React.render(
-    <TodoApp name='You' />,
+    <TodoApp />,
     document.getElementById('main')
 );
